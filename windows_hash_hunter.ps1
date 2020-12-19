@@ -1,4 +1,4 @@
-﻿clear
+clear
 <#>
 Created by Command Post Technologies
 </#>
@@ -12,7 +12,7 @@ Write-Host Saving all generated hashes to $exportlocation this can take a long t
 $filestocheck = Get-ChildItem -Path $drive -Recurse -File -ErrorAction SilentlyContinue | Get-FileHash -Algorithm SHA1 -ErrorAction SilentlyContinue 
 $filestocheck | Export-Csv -Path $exportlocation -Append
 
-#this section checks each hash agains the one provided above
+#this section checks each hash against the one provided above
 if ($shaQuestion -eq "yes"){
 $sha1_file_to_locate = Read-Host -Prompt 'Please enter the sha1 with no spaces'
 $table = Import-Csv -Path $exportlocation
